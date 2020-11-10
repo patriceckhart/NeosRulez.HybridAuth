@@ -10,7 +10,7 @@
   },
   "autoload": {
     "psr-4": {
-      "NeosRulez\\HybridAuth": "Classes/"
+      "NeosRulez\\HybridAuth\\": "Classes/"
     }
   },
   "extra": {
