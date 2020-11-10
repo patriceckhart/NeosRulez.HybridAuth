@@ -1,0 +1,21 @@
+{
+  "description": "A Neos CMS plugin which enables login with Google, Github and Facebook to the Neos CMS backend.",
+  "type": "neos-package",
+  "name": "neosrulez/hybridauth",
+  "require": {
+    "neos/neos": "*",
+    "league/oauth2-github": "*",
+    "league/oauth2-google": "*",
+    "league/oauth2-facebook": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "NeosRulez\\HybridAuth": "Classes/"
+    }
+  },
+  "extra": {
+    "neos": {
+      "package-key": "NeosRulez.HybridAuth"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+-
+  name: 'Github auth'
+  uriPattern: 'neosrulez-hybridauth-github-auth'
+  defaults:
+    '@controller': 'Github'
+    '@package': 'NeosRulez.HybridAuth'
+    '@action': 'auth'
+  appendExceedingArguments: true
+-
+  name: 'Github login'
+  uriPattern: 'neosrulez-hybridauth-github-login'
+  defaults:
+    '@controller': 'Github'
+    '@package': 'NeosRulez.HybridAuth'
+    '@action': 'login'
+  appendExceedingArguments: true
+-
+  name: 'Facebook auth'
+  uriPattern: 'neosrulez-hybridauth-facebook-auth'
+  defaults:
+    '@controller': 'Facebook'
+    '@package': 'NeosRulez.HybridAuth'
+    '@action': 'auth'
+  appendExceedingArguments: true
+-
+  name: 'Facebook login'
+  uriPattern: 'neosrulez-hybridauth-facebook-login'
+  defaults:
+    '@controller': 'Facebook'
+    '@package': 'NeosRulez.HybridAuth'
+    '@action': 'login'
+  appendExceedingArguments: true
+-
+  name: 'Google auth'
+  uriPattern: 'neosrulez-hybridauth-google-auth'
+  defaults:
+    '@controller': 'Google'
+    '@package': 'NeosRulez.HybridAuth'
+    '@action': 'auth'
+  appendExceedingArguments: true
+-
+  name: 'Google login'
+  uriPattern: 'neosrulez-hybridauth-google-login'
+  defaults:
+    '@controller': 'Google'
+    '@package': 'NeosRulez.HybridAuth'
+    '@action': 'login'
+  appendExceedingArguments: true

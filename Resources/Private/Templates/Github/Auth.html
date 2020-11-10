@@ -1,0 +1,13 @@
+<f:if condition="{username} && {token}">
+    <f:then>
+        <f:form action="authenticate" controller="Login" package="Neos.Neos" method="post" id="login" additionalAttributes="{role:'form'}" style="display:none;">
+            <input type="text" id="inputUsername" name="__authentication[Neos][Flow][Security][Authentication][Token][UsernamePassword][username]" value="{username}" required="required">
+            <input type="text" id="inputPassword" name="__authentication[Neos][Flow][Security][Authentication][Token][UsernamePassword][password]" value="{token}" required="required">
+            <button type="submit">Login</button>
+        </f:form>
+        <script>document.getElementById("login").submit();</script>
+    </f:then>
+    <f:else>
+        <p>Not authorized.</p>
+    </f:else>
+</f:if>

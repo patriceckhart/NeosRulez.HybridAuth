@@ -1,0 +1,8 @@
+#neosrulez-__hybridauth__login { margin-top:40px; }
+.neosrulez-hybridauth-loginform img { width:16px;height:auto;margin-top:-3px;margin-right:5px; }
+.neosrulez-hybridauth-loginform .neos-login-btn-facebook img { width:10px; }
+.neosrulez-hybridauth-loginform .neos-login-btn-google img { width:15px; }
+.neosrulez-hybridauth-loginform { margin-top:15px; }
+.neos-login-btn-github { background: #24292e !important; }
+.neos-login-btn-facebook { background: #4267B2 !important; }
+.neos-login-btn-google { background: #4885ed !important; }

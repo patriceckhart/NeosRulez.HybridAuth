@@ -1,0 +1,26 @@
+privilegeTargets:
+  Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege:
+    'NeosRulez.HybridAuth:AbstractProviderControllerActions':
+      matcher: 'method(NeosRulez\HybridAuth\Controller\AbstractProviderController->.*Action())'
+    'NeosRulez.HybridAuth:GithubControllerActions':
+      matcher: 'method(NeosRulez\HybridAuth\Controller\GithubController->.*Action())'
+    'NeosRulez.HybridAuth:FacebookControllerActions':
+      matcher: 'method(NeosRulez\HybridAuth\Controller\FacebookController->.*Action())'
+    'NeosRulez.HybridAuth:GoogleControllerActions':
+      matcher: 'method(NeosRulez\HybridAuth\Controller\GoogleController->.*Action())'
+
+roles:
+  'Neos.Flow:Everybody':
+    privileges:
+      -
+        privilegeTarget: 'NeosRulez.HybridAuth:AbstractProviderControllerActions'
+        permission: GRANT
+      -
+        privilegeTarget: 'NeosRulez.HybridAuth:GithubControllerActions'
+        permission: GRANT
+      -
+        privilegeTarget: 'NeosRulez.HybridAuth:FacebookControllerActions'
+        permission: GRANT
+      -
+        privilegeTarget: 'NeosRulez.HybridAuth:GoogleControllerActions'
+        permission: GRANT
