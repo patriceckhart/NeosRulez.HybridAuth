@@ -62,7 +62,7 @@ prototype(Neos.Neos:View.Login) < prototype(Neos.Fusion:Component) {
                                     username={props.username}
                                     flashMessages={props.flashMessages}
                             />
-                            <div id="neosrulez-__hybridauth__login">
+                            <div @if.render={props.showGithubLogin || props.showFacebookLogin || props.showGoogleLogin} id="neosrulez__hybridauth__login" >
                                 <NeosRulez.HybridAuth:Component.HybridLogin.Form @if.render={props.showGithubLogin} provider="github" btnLabel="Login with Github" />
                                 <NeosRulez.HybridAuth:Component.HybridLogin.Form @if.render={props.showFacebookLogin} provider="facebook" btnLabel="Login with Facebook" />
                                 <NeosRulez.HybridAuth:Component.HybridLogin.Form @if.render={props.showGoogleLogin} provider="google" btnLabel="Login with Google" />
