@@ -4,15 +4,18 @@
 #      github:
 #        clientId: '4859d7d83243241666ca8'
 #        clientSecret: '87384sdfsdf05cc7a9b91ee4ae2b7d2081394'
-#        callBackUri: 'http://dev.neos1.loc/neosrulez-hybridauth-github-auth'
+#        callBackUri: 'https://foobar.com/neosrulez-hybridauth-github-auth'
 #        defaultRole: 'Neos.Neos:Administrator'
+#        username: 'username-of-your-account'
 #      facebook:
 #        facebookAppId: '8012324325000'
 #        facebookAppSecret: '92f471a234234dbd3e76c045181c3'
-#        redirectUri: 'http://dev.neos1.loc/neosrulez-hybridauth-facebook-auth'
+#        redirectUri: 'https://foobar.com/neosrulez-hybridauth-facebook-auth'
 #        defaultRole: 'Neos.Neos:Administrator'
+#        username: 'username-of-your-account'
 #      google:
 #        googleClientId: '4859d6867671666ca8'
 #        googleClientSecret: '87384bf2fgh546459b91ee4ae2b7d2081394'
-#        callBackUri: 'http://dev.neos1.loc/neosrulez-hybridauth-google-auth'
+#        callBackUri: 'https://foobar.com/neosrulez-hybridauth-google-auth'
 #        defaultRole: 'Neos.Neos:Administrator'
+#        username: 'username-of-your-account'

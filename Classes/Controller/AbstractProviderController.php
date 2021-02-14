@@ -79,30 +79,36 @@ class AbstractProviderController extends ActionController {
                 exit('Oh dear...');
             }
 
-            $account = $this->accountRepository->findByAccountIdentifierAndAuthenticationProviderName($user->getNickname(), 'Neos.Neos:Backend');
+            if($user->getNickname() == $this->settings['Provider'][$this->authProvider]['username']) {
 
-            if (!$account) {
-                $defaultRole[] = $this->credentials()['defaultRole'];
-                $this->userService->createUser($user->getNickname(), $token->getToken(), $user->getName(), '', $defaultRole, 'Neos.Neos:Backend');
-                $this->persistenceManager->persistAll();
                 $account = $this->accountRepository->findByAccountIdentifierAndAuthenticationProviderName($user->getNickname(), 'Neos.Neos:Backend');
+
+                if (!$account) {
+                    $defaultRole[] = $this->credentials()['defaultRole'];
+                    $this->userService->createUser($user->getNickname(), $token->getToken(), $user->getName(), '', $defaultRole, 'Neos.Neos:Backend');
+                    $this->persistenceManager->persistAll();
+                    $account = $this->accountRepository->findByAccountIdentifierAndAuthenticationProviderName($user->getNickname(), 'Neos.Neos:Backend');
+                    $this->persistenceManager->whitelistObject($account);
+                }
+
+                $defaultRole[] = new \Neos\Flow\Security\Policy\Role($this->credentials()['defaultRole']);
+
+                $account->setAccountIdentifier($user->getNickname());
+                $account->setAuthenticationProviderName('Neos.Neos:Backend');
+                $account->setRoles($defaultRole);
+                $account->authenticationAttempted(\Neos\Flow\Security\Authentication\TokenInterface::AUTHENTICATION_SUCCESSFUL);
+
+                $account->setCredentialsSource($this->hashService->hashPassword($token->getToken()));
+
                 $this->persistenceManager->whitelistObject($account);
+                $this->persistenceManager->update($account);
+
+                $this->view->assign('username', $user->getNickname());
+                $this->view->assign('token', $token->getToken());
+
             }
 
-            $defaultRole[] = new \Neos\Flow\Security\Policy\Role($this->credentials()['defaultRole']);
 
-            $account->setAccountIdentifier($user->getNickname());
-            $account->setAuthenticationProviderName('Neos.Neos:Backend');
-            $account->setRoles($defaultRole);
-            $account->authenticationAttempted(\Neos\Flow\Security\Authentication\TokenInterface::AUTHENTICATION_SUCCESSFUL);
-
-            $account->setCredentialsSource($this->hashService->hashPassword($token->getToken()));
-
-            $this->persistenceManager->whitelistObject($account);
-            $this->persistenceManager->update($account);
-
-            $this->view->assign('username', $user->getNickname());
-            $this->view->assign('token', $token->getToken());
 
         }
 
